@@ -1,10 +1,9 @@
 import React from "react";
-import { useGeminiLive } from "./hooks/useGeminiLive";
+import { useVapi } from "./hooks/useVapi";
 import EmotionBadge from "./components/EmotionBadge";
 import SuggestionsPanel from "./components/SuggestionsPanel";
 import EmotionChart from "./components/EmotionChart";
 import TranscriptPanel from "./components/TranscriptPanel";
-import { EmotionType } from "./types";
 
 export default function App() {
   const {
@@ -16,7 +15,7 @@ export default function App() {
     mode,
     setMode,
     transcript,
-  } = useGeminiLive();
+  } = useVapi();
 
   const isConnected = status === "connected";
   const isConnecting = status === "connecting";
@@ -190,7 +189,7 @@ export default function App() {
               </span>
               <span className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                Model: gemini-2.5-flash-native-audio
+                Provider: VAPI (gpt-4-turbo)
               </span>
               <span className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-indigo-500"></span>

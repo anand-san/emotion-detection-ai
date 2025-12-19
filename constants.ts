@@ -41,5 +41,3 @@ export const EMOTION_HEX_COLORS: Record<EmotionType, string> = {
   [EmotionType.NEUTRAL]: "#94a3b8", // slate-400
   [EmotionType.HAPPY]: "#34d399", // emerald-400
 };
-
-export const SAMPLE_RATE = 16000;
