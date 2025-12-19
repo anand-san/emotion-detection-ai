@@ -24,13 +24,13 @@ Your job is to LISTEN to the audio stream of a caller and analyze their emotiona
 `;
 
 export const EMOTION_COLORS: Record<EmotionType, string> = {
-  [EmotionType.ANGER]: "text-red-500 border-red-500 bg-red-500/10",
-  [EmotionType.STRESS]: "text-orange-500 border-orange-500 bg-orange-500/10",
-  [EmotionType.URGENCY]: "text-yellow-500 border-yellow-500 bg-yellow-500/10",
-  [EmotionType.CONFUSION]: "text-purple-500 border-purple-500 bg-purple-500/10",
-  [EmotionType.SADNESS]: "text-blue-400 border-blue-400 bg-blue-400/10",
-  [EmotionType.NEUTRAL]: "text-slate-400 border-slate-500 bg-slate-500/10",
-  [EmotionType.HAPPY]: "text-emerald-400 border-emerald-500 bg-emerald-500/10",
+  [EmotionType.ANGER]: "text-red-600 border-red-500 bg-red-500/10",
+  [EmotionType.STRESS]: "text-orange-600 border-orange-500 bg-orange-500/10",
+  [EmotionType.URGENCY]: "text-yellow-600 border-yellow-500 bg-yellow-500/10",
+  [EmotionType.CONFUSION]: "text-purple-600 border-purple-500 bg-purple-500/10",
+  [EmotionType.SADNESS]: "text-blue-600 border-blue-400 bg-blue-400/10",
+  [EmotionType.NEUTRAL]: "text-slate-600 border-slate-500 bg-slate-500/10",
+  [EmotionType.HAPPY]: "text-emerald-600 border-emerald-500 bg-emerald-500/10",
 };
 
 export const EMOTION_HEX_COLORS: Record<EmotionType, string> = {

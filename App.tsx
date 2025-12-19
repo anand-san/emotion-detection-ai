@@ -21,29 +21,25 @@ export default function App() {
   const isConnecting = status === "connecting";
 
   return (
-    <div className="min-h-screen bg-primary text-white p-2 md:p-2">
+    <div className="min-h-screen bg-white text-slate-900 p-2 md:p-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <header className="flex flex-col md:flex-row justify-between items-center mb-4 pb-4 gap-6">
+        <header className="flex flex-col md:flex-row justify-between items-center mb-4 pb-4 gap-6 border-b border-gray-200">
           <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="bg-indigo-600 p-2 rounded-lg">
+            <div className="bg-black p-2 rounded-lg">
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                />
+                <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
+                <path d="M9 12l2 2 4-4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">CallSensei</h1>
-              <p className="text-slate-400 text-sm">
+              <h1 className="text-2xl font-bold tracking-tight text-slate-900">CallSensei</h1>
+              <p className="text-slate-500 text-sm">
                 Real-time Call Intelligence
               </p>
             </div>
@@ -51,14 +47,14 @@ export default function App() {
 
           <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
             {/* Mode Toggle */}
-            <div className="flex items-center bg-slate-800 rounded-full p-1 border border-slate-700">
+            <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-200">
               <button
                 onClick={() => setMode("continuous")}
                 disabled={isConnected}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "continuous"
-                    ? "bg-indigo-600 text-white shadow-md"
-                    : "text-slate-400 hover:text-slate-200"
+                    ? "bg-black text-white shadow-sm"
+                    : "text-slate-500 hover:text-slate-900"
                 } ${isConnected ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 Continuous
@@ -68,8 +64,8 @@ export default function App() {
                 disabled={isConnected}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
                   mode === "single_shot"
-                    ? "bg-indigo-600 text-white shadow-md"
-                    : "text-slate-400 hover:text-slate-200"
+                    ? "bg-black text-white shadow-sm"
+                    : "text-slate-500 hover:text-slate-900"
                 } ${isConnected ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 Single Shot
@@ -77,7 +73,7 @@ export default function App() {
             </div>
 
             {status === "error" && (
-              <span className="text-red-400 text-sm font-medium">
+              <span className="text-red-600 text-sm font-medium">
                 Connection Failed
               </span>
             )}
@@ -85,12 +81,12 @@ export default function App() {
             <button
               onClick={isConnected ? disconnect : connect}
               disabled={isConnecting}
-              className={`px-6 py-2.5 rounded-full font-medium transition-all shadow-lg flex items-center gap-2 w-full md:w-auto justify-center ${
+              className={`px-6 py-2.5 rounded-full font-medium transition-all shadow-sm flex items-center gap-2 w-full md:w-auto justify-center ${
                 isConnected
-                  ? "bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/50"
+                  ? "bg-white text-black border-2 border-black hover:bg-gray-50"
                   : isConnecting
-                  ? "bg-slate-700 text-slate-300 cursor-wait"
-                  : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-500/20"
+                  ? "bg-gray-200 text-gray-500 cursor-wait"
+                  : "bg-black hover:bg-gray-800 text-white"
               }`}
             >
               {isConnecting ? (
@@ -153,10 +149,10 @@ export default function App() {
                   confidence={currentAnalysis.confidence}
                 />
               ) : (
-                <div className="h-full bg-slate-800/30 rounded-2xl border-2 border-slate-700/50 border-dashed flex items-center justify-center text-slate-500 p-6 text-center">
+                <div className="h-full bg-gray-50 rounded-2xl border-2 border-gray-200 border-dashed flex items-center justify-center text-slate-500 p-6 text-center">
                   <div>
-                    <p className="mb-2 text-lg font-medium">Ready to Listen</p>
-                    <p className="text-sm">
+                    <p className="mb-2 text-lg font-medium text-slate-700">Ready to Listen</p>
+                    <p className="text-sm text-slate-500">
                       {mode === "single_shot"
                         ? "Will analyze a short segment and then stop."
                         : "Start the session to analyze call audio continuously."}

@@ -16,10 +16,10 @@ const EmotionChart: React.FC<EmotionChartProps> = ({ history }) => {
   }, [history]);
 
   return (
-    <div className="h-full w-full bg-slate-800/30 rounded-xl border border-slate-700/50 p-5 flex flex-col min-h-0">
+    <div className="h-full w-full bg-gray-50 rounded-xl border border-gray-200 p-5 flex flex-col min-h-0">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h4 className="text-xs text-slate-400 uppercase font-bold flex items-center gap-2">
+          <h4 className="text-xs text-slate-500 uppercase font-bold flex items-center gap-2">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -43,10 +43,10 @@ const EmotionChart: React.FC<EmotionChartProps> = ({ history }) => {
 
       <div 
         ref={scrollRef}
-        className="flex-1 w-full min-h-0 overflow-y-auto pr-2 space-y-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent"
+        className="flex-1 w-full min-h-0 overflow-y-auto pr-2 space-y-3 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
       >
         {history.length === 0 ? (
-          <div className="h-full flex items-center justify-center text-slate-600 text-xs italic">
+          <div className="h-full flex items-center justify-center text-slate-400 text-xs italic">
             No emotional shifts detected yet...
           </div>
         ) : (
@@ -65,13 +65,13 @@ const EmotionChart: React.FC<EmotionChartProps> = ({ history }) => {
                   style={{ backgroundColor: EMOTION_HEX_COLORS[item.emotion] || "#94a3b8" }}
                 ></div>
                 {idx !== history.length - 1 && (
-                  <div className="absolute top-2 w-[1px] h-[calc(100%+12px)] bg-slate-800 group-last:hidden"></div>
+                  <div className="absolute top-2 w-[1px] h-[calc(100%+12px)] bg-gray-300 group-last:hidden"></div>
                 )}
               </div>
 
-              <div className="flex-1 bg-slate-800/40 rounded px-3 py-2 border border-slate-700/30 flex justify-between items-center">
-                <span className="font-medium text-slate-200">{item.emotion}</span>
-                <span className="text-[10px] text-slate-500 bg-slate-900/50 px-1.5 py-0.5 rounded">
+              <div className="flex-1 bg-white rounded px-3 py-2 border border-gray-200 flex justify-between items-center shadow-sm">
+                <span className="font-medium text-slate-900">{item.emotion}</span>
+                <span className="text-[10px] text-slate-600 bg-gray-100 px-1.5 py-0.5 rounded">
                   {(item.confidence * 100).toFixed(0)}%
                 </span>
               </div>
