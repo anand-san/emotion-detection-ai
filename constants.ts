@@ -33,6 +33,16 @@ export const EMOTION_COLORS: Record<EmotionType, string> = {
   [EmotionType.HAPPY]: "text-emerald-600 border-emerald-500 bg-emerald-500/10",
 };
 
+export const EMOTION_ICON_PATHS: Partial<Record<EmotionType, string>> = {
+  [EmotionType.ANGER]: "/emotions/anger.svg",
+  [EmotionType.STRESS]: "/emotions/stress.svg",
+  [EmotionType.URGENCY]: "/emotions/urgency.svg",
+  [EmotionType.CONFUSION]: "/emotions/confusion.svg",
+  [EmotionType.SADNESS]: "/emotions/sadness.svg",
+  [EmotionType.NEUTRAL]: "/emotions/neutral.svg",
+  [EmotionType.HAPPY]: "/emotions/happy.svg",
+};
+
 export const EMOTION_HEX_COLORS: Record<EmotionType, string> = {
   [EmotionType.ANGER]: "#ef4444", // red-500
   [EmotionType.STRESS]: "#f97316", // orange-500
