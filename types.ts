@@ -12,6 +12,7 @@ export interface AnalysisData {
   emotion: EmotionType;
   confidence: number;
   suggestions: string[];
+  suggestedOpeningLine: string;
   summary: string;
   timestamp: number;
 }

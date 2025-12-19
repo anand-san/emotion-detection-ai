@@ -21,10 +21,10 @@ export default function App() {
   const isConnecting = status === "connecting";
 
   return (
-    <div className="min-h-screen bg-primary text-white p-6 md:p-12">
+    <div className="min-h-screen bg-primary text-white p-2 md:p-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <header className="flex flex-col md:flex-row justify-between items-center mb-10 border-b border-slate-800 pb-6 gap-6">
+        <header className="flex flex-col md:flex-row justify-between items-center mb-4 pb-4 gap-6">
           <div className="flex items-center gap-3 w-full md:w-auto">
             <div className="bg-indigo-600 p-2 rounded-lg">
               <svg
@@ -42,7 +42,7 @@ export default function App() {
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">MoodScout</h1>
+              <h1 className="text-2xl font-bold tracking-tight">CallSensei</h1>
               <p className="text-slate-400 text-sm">
                 Real-time Call Intelligence
               </p>
@@ -135,7 +135,7 @@ export default function App() {
                       d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
                     />
                   </svg>
-                  {mode === "single_shot" ? "Analyze Once" : "Start Monitoring"}
+                  Start Analyzing
                 </>
               )}
             </button>
@@ -183,6 +183,12 @@ export default function App() {
         <div className="mt-8 flex justify-center text-slate-500 text-xs gap-6">
           {isConnected ? (
             <>
+              {currentAnalysis && (
+                <span className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-purple-500"></span>
+                  Confidence: {(currentAnalysis.confidence * 100).toFixed(0)}%
+                </span>
+              )}
               <span className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-green-500"></span>
                 Microphone Active

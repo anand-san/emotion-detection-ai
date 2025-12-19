@@ -20,7 +20,7 @@ const updateDashboardTool = {
     },
     {
       type: "request-complete",
-      content: "Dashboard updated.",
+      content: "",
     },
     {
       type: "request-failed",
@@ -48,12 +48,16 @@ const updateDashboardTool = {
           items: { type: "string" },
           description: "3 short, tactical bullet points for the operator.",
         },
+        suggested_opening_line: {
+          type: "string",
+          description: "A specific sentence the operator should say immediately.",
+        },
         summary: {
           type: "string",
           description: "A very brief one-sentence summary of the tone.",
         },
       },
-      required: ["emotion", "confidence", "suggestions", "summary"],
+      required: ["emotion", "confidence", "suggestions", "suggested_opening_line", "summary"],
     },
   },
   async: true,
@@ -99,6 +103,7 @@ export const useVapi = () => {
           emotion: args.emotion,
           confidence: args.confidence,
           suggestions: args.suggestions,
+          suggestedOpeningLine: args.suggested_opening_line,
           summary: args.summary,
           timestamp: Date.now(),
         };
@@ -167,7 +172,7 @@ export const useVapi = () => {
     };
   }, [disconnect, handleToolCall]);
 
-  const connect = useCallback(() => {
+  const connect = useCallback((assistantId?: string | any) => {
     if (!vapiRef.current) return;
     if (!VAPI_PUBLIC_KEY) {
       alert("Please set VAPI_PUBLIC_KEY in your environment or code.");
@@ -179,32 +184,36 @@ export const useVapi = () => {
     setTranscript("");
     setStatus("connecting");
 
-    const assistantOptions = {
-      name: "MoodScout",
-      firstMessage: "",
-      transcriber: {
-        provider: "deepgram",
-        model: "nova-2",
-        language: "en-US",
-      },
-      model: {
-        provider: "openai",
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content: SYSTEM_INSTRUCTION,
-          },
-        ],
-        tools: [updateDashboardTool],
-      },
-      voice: {
-        provider: "11labs",
-        voiceId: "burt",
-      },
-    };
+    if (typeof assistantId === "string" && assistantId.trim().length > 0) {
+      vapiRef.current.start(assistantId);
+    } else {
+      const assistantOptions = {
+        name: "MoodScout",
+        firstMessage: "",
+        transcriber: {
+          provider: "deepgram",
+          model: "nova-2",
+          language: "en-US",
+        },
+        model: {
+          provider: "openai",
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "system",
+              content: SYSTEM_INSTRUCTION,
+            },
+          ],
+          tools: [updateDashboardTool],
+        },
+        voice: {
+          provider: "11labs",
+          voiceId: "burt",
+        },
+      };
 
-    vapiRef.current.start(assistantOptions as any);
+      vapiRef.current.start(assistantOptions as any);
+    }
   }, []);
 
   return {
