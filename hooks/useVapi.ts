@@ -50,14 +50,21 @@ const updateDashboardTool = {
         },
         suggested_opening_line: {
           type: "string",
-          description: "A specific sentence the operator should say immediately.",
+          description:
+            "A specific sentence the operator should say immediately.",
         },
         summary: {
           type: "string",
           description: "A very brief one-sentence summary of the tone.",
         },
       },
-      required: ["emotion", "confidence", "suggestions", "suggested_opening_line", "summary"],
+      required: [
+        "emotion",
+        "confidence",
+        "suggestions",
+        "suggested_opening_line",
+        "summary",
+      ],
     },
   },
   async: true,
@@ -188,7 +195,7 @@ export const useVapi = () => {
       vapiRef.current.start(assistantId);
     } else {
       const assistantOptions = {
-        name: "MoodScout",
+        name: "CallSensei",
         firstMessage: "",
         transcriber: {
           provider: "deepgram",

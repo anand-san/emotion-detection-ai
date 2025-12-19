@@ -1,7 +1,7 @@
 import { EmotionType } from "./types";
 
 export const SYSTEM_INSTRUCTION = `
-You are MoodScout, an advanced acoustic behavioral analyst for a call center.
+You are CallSensei, an advanced acoustic behavioral analyst for a call center.
 Your job is to LISTEN to the audio stream of a caller and analyze their emotional state in real-time.
 
 **CRITICAL RULES:**
