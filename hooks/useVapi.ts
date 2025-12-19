@@ -16,7 +16,7 @@ const updateDashboardTool = {
   messages: [
     {
       type: "request-start",
-      content: "Updating dashboard...",
+      content: "",
     },
     {
       type: "request-complete",
@@ -24,7 +24,7 @@ const updateDashboardTool = {
     },
     {
       type: "request-failed",
-      content: "Failed to update dashboard.",
+      content: "",
     },
   ],
   function: {
