@@ -18,7 +18,7 @@ const TranscriptPanel: React.FC<TranscriptPanelProps> = ({ transcript }) => {
       <div className="flex justify-between items-center mb-2">
         <h4 className="text-xs text-slate-400 uppercase font-bold flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          Live Transcript
+          Transcript
         </h4>
       </div>
       <div

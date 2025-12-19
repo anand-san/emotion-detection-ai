@@ -16,7 +16,7 @@ const EmotionChart: React.FC<EmotionChartProps> = ({ history }) => {
   }, [history]);
 
   return (
-    <div className="h-[280px] w-full bg-slate-800/30 rounded-xl border border-slate-700/50 p-5 mt-6 flex flex-col">
+    <div className="h-full w-full bg-slate-800/30 rounded-xl border border-slate-700/50 p-5 flex flex-col min-h-0">
       <div className="flex justify-between items-start mb-4">
         <div>
           <h4 className="text-xs text-slate-400 uppercase font-bold flex items-center gap-2">

@@ -143,30 +143,36 @@ export default function App() {
         </header>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[500px]">
-          {/* Left Column: Emotion Badge */}
-          <div className="md:col-span-1 h-full">
-            {currentAnalysis ? (
-              <EmotionBadge
-                emotion={currentAnalysis.emotion}
-                confidence={currentAnalysis.confidence}
-              />
-            ) : (
-              <div className="h-full bg-slate-800/30 rounded-2xl border-2 border-slate-700/50 border-dashed flex items-center justify-center text-slate-500 p-6 text-center">
-                <div>
-                  <p className="mb-2 text-lg font-medium">Ready to Listen</p>
-                  <p className="text-sm">
-                    {mode === "single_shot"
-                      ? "Will analyze a short segment and then stop."
-                      : "Start the session to analyze call audio continuously."}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[520px]">
+          {/* Left Column: Emotion Badge & Timeline */}
+          <div className="flex flex-col gap-6 h-full min-h-0">
+            <div className="flex-1 min-h-0">
+              {currentAnalysis ? (
+                <EmotionBadge
+                  emotion={currentAnalysis.emotion}
+                  confidence={currentAnalysis.confidence}
+                />
+              ) : (
+                <div className="h-full bg-slate-800/30 rounded-2xl border-2 border-slate-700/50 border-dashed flex items-center justify-center text-slate-500 p-6 text-center">
+                  <div>
+                    <p className="mb-2 text-lg font-medium">Ready to Listen</p>
+                    <p className="text-sm">
+                      {mode === "single_shot"
+                        ? "Will analyze a short segment and then stop."
+                        : "Start the session to analyze call audio continuously."}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+
+            <div className="flex-1 min-h-0">
+              <EmotionChart history={history} />
+            </div>
           </div>
 
           {/* Right Column: Suggestions & History */}
-          <div className="md:col-span-2 flex flex-col h-full gap-6">
+          <div className="flex flex-col h-full gap-6 min-h-0">
             <div className="flex-1 min-h-0">
               <SuggestionsPanel data={currentAnalysis} />
             </div>
@@ -175,9 +181,6 @@ export default function App() {
 
         {/* Transcript Row */}
         <TranscriptPanel transcript={transcript} />
-
-        {/* Chart Row */}
-        {history.length > 0 && <EmotionChart history={history} />}
 
         {/* Footer info */}
         <div className="mt-8 flex justify-center text-slate-500 text-xs gap-6">
