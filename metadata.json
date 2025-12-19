@@ -1,0 +1,7 @@
+{
+  "name": "MoodScout",
+  "description": "Real-time acoustic emotion analysis and operator guidance tool using Gemini Live API.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
