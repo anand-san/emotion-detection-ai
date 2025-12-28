@@ -1,10 +1,23 @@
 # CallSensei - Real-Time AI Emotion Analysis
+**CallSensei** is a real-time AI copilot for call center agents that translates vocal emotion into immediate, actionable conversation guidance—without interrupting the call.
 
 ![CallSensei Screenshot](public/app_screenshot.png)
 
-> **Winner of "Best Tool Calling with Vapi" at AI Hackathon SFxHamburg (CodeRabbit x Windsurf Christmas Edition)** 🏆
+> **Winner of "Best Tool Calling with Vapi" at AI Hackathon SFxHamburg 2025 (CodeRabbit x Windsurf Christmas Edition)** 🏆
 
 CallSensei is a real-time call intelligence dashboard that acts as a silent "whisperer" for call center operators. By analyzing the audio stream in real-time, it detects acoustic emotional cues—such as anger, stress, or hesitation—and provides instant, tactical suggestions to help operators navigate difficult conversations with empathy and precision.
+
+## Why CallSensei?
+
+Call center agents handle emotionally charged conversations every day, yet most tools analyze calls *after* they end.
+CallSensei works **during the call**, helping agents:
+
+- De-escalate frustration in real time
+- Adapt tone and structure to caller emotion
+- Reduce cognitive load and emotional burnout
+- Improve first-call resolution and CSAT
+
+The system acts as a silent coach—never speaking to the customer, only supporting the human operator.
 
 ## Features
 
